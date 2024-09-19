@@ -6,16 +6,20 @@ function Header() {
     const navigate = useNavigate();
     const handleNavigation = () => {
         navigate('/details');
-      };
+        navigate('/Login');
+        navigate('/Register');
+        navigate('/Expense');
+    };
+    
     return (
         <>
             <div className="traveltour-header-background-transparent"><div className="traveltour-top-bar "><div className="traveltour-top-bar-background" /><div className="traveltour-top-bar-container clearfix traveltour-container "><div className="traveltour-top-bar-left traveltour-item-pdlr traveltour-right-with-border"><div className="traveltour-top-bar-left-text"><i className="fa fa-phone" style={{ fontSize: 16, color: '#ffffff', marginRight: 10 }} /> 1.820.3345.33
-                <i className="fa fa-envelope-o" style={{ fontSize: 16, color: '#ffffff', marginLeft: 30, marginRight: 10 }} /> Contact@TravelTourWP.com</div></div><div className="traveltour-top-bar-right traveltour-item-pdlr traveltour-right-with-border"><div className="traveltour-top-bar-right-social"><a href="#" target="_blank" className="infinite-top-bar-social-icon" title="facebook"><i className="fa6b fa6-facebook" /></a><a href="#" target="_blank" className="infinite-top-bar-social-icon" title="flickr"><i className="fa6b fa6-flickr" /></a><a href="#" target="_blank" className="infinite-top-bar-social-icon" title="twitter"><i className="fa6b fa6-x-twitter" /></a></div><div className="tourmaster-user-top-bar tourmaster-guest tourmaster-style-1"><a className="tourmaster-user-top-bar-login" href="https://demo.goodlayers.com/traveltour/login/"><i className="icon_lock_alt" /><span className="tourmaster-text">Login</span></a><a className="tourmaster-user-top-bar-signup" href="https://demo.goodlayers.com/traveltour/register/"><i className="fa fa-user" /><span className="tourmaster-text">Sign Up</span></a></div></div></div></div>
+                <i className="fa fa-envelope-o" style={{ fontSize: 16, color: '#ffffff', marginLeft: 30, marginRight: 10 }} /> Contact@TravelTourWP.com</div></div><div className="traveltour-top-bar-right traveltour-item-pdlr traveltour-right-with-border"><div className="traveltour-top-bar-right-social"><a href="#" target="_blank" className="infinite-top-bar-social-icon" title="facebook"><i className="fa6b fa6-facebook" /></a><a href="#" target="_blank" className="infinite-top-bar-social-icon" title="flickr"><i className="fa6b fa6-flickr" /></a><a href="#" target="_blank" className="infinite-top-bar-social-icon" title="twitter"><i className="fa6b fa6-x-twitter" /></a></div><div className="tourmaster-user-top-bar tourmaster-guest tourmaster-style-1"><a className="tourmaster-user-top-bar-login" href="/Login"><i className="icon_lock_alt" /><span className="tourmaster-text">Login</span></a><a className="tourmaster-user-top-bar-signup" href="Register"><i className="fa fa-user" /><span className="tourmaster-text">Sign Up</span></a></div></div></div></div>
                 <header className="traveltour-header-wrap traveltour-header-style-plain traveltour-style-menu-right traveltour-sticky-navigation traveltour-style-slide" style={{ display: 'block' }}>
                     <div className="traveltour-header-background" />
                     <div className="traveltour-header-container  traveltour-container">
-                        <div className="traveltour-header-container-inner clearfix">                                                                                                        
-                            <div className="traveltour-logo  traveltour-item-pdlr"><div className="traveltour-logo-inner"><a className href="https://demo.goodlayers.com/traveltour/"><img src="https://i.postimg.cc/Hn0hmmHg/logo.png"  /></a></div></div>			<div className="traveltour-navigation traveltour-item-pdlr clearfix ">
+                        <div className="traveltour-header-container-inner clearfix">
+                            <div className="traveltour-logo  traveltour-item-pdlr"><div className="traveltour-logo-inner"><a className href="https://demo.goodlayers.com/traveltour/"><img src="https://i.postimg.cc/Hn0hmmHg/logo.png" /></a></div></div>			<div className="traveltour-navigation traveltour-item-pdlr clearfix ">
                                 <div className="traveltour-main-menu sf-js-enabled sf-arrows" id="traveltour-main-menu" style={{ touchAction: 'pan-y' }}><ul id="menu-main-navigation-1" className="sf-menu"><li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2039 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-4373 traveltour-normal-menu"><a href="https://demo.goodlayers.com/traveltour/" className="sf-with-ul-pre sf-with-ul">Home</a>
                                     <ul className="sub-menu" style={{ display: 'none' }}>
                                         <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2039 current_page_item menu-item-4440" data-size={60}><a href="https://demo.goodlayers.com/traveltour/">Homepage 1</a></li>
@@ -163,7 +167,7 @@ function Header() {
                                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-4334" data-size={60}><a href="https://demo.goodlayers.com/traveltour/404">404 Page</a></li>
                                         </ul>
                                     </li>
-                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4716 traveltour-normal-menu"><a href="https://demo.goodlayers.com/traveltour/tour-side-thumbnail-with-frame-right-sidebar/" className="sf-with-ul-pre sf-with-ul">Tour List</a>
+                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4716 traveltour-normal-menu"><a href="/Expense" className="sf-with-ul-pre sf-with-ul">Tour List</a>
                                         <ul className="sub-menu" style={{ display: 'none' }}>
                                             <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-4731" data-size={60}><a href="https://demo.goodlayers.com/traveltour/tour-full-with-frame-right-sidebar/" className="sf-with-ul-pre sf-with-ul">Tour Full</a>
                                                 <ul className="sub-menu" style={{ display: 'none' }}>
@@ -221,7 +225,7 @@ function Header() {
                                             </li>
                                         </ul>
                                     </li>
-                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4864 traveltour-normal-menu">  <a href="#" onClick={handleNavigation}>Destinations</a>
+                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4864 traveltour-normal-menu">  <a href="/details" onClick={handleNavigation}>Destinations</a>
                                     </li>
                                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4867 traveltour-normal-menu"><a href="#" className="sf-with-ul-pre sf-with-ul">Date &amp; Pricing</a>
                                         <ul className="sub-menu" style={{ display: 'none' }}>

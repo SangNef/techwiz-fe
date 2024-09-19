@@ -9,7 +9,7 @@ function Home3_5() {
         <div className="gdlr-core-pbf-element">
             <div className="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style={{paddingBottom: 40}}>
                 <div className="gdlr-core-title-item-title-wrap">
-                    <h3 className="gdlr-core-title-item-title gdlr-core-skin-title" style={{fontSize: 24, fontWeight: 400, letterSpacing: 0, textTransform: 'none'}}><span className="gdlr-core-title-item-left-icon" style={{fontSize: 22}}><i className="icon_lightbulb_alt" style={{color: '#467fe7'}} /></span>Travel Articles<span className="gdlr-core-title-item-title-divider gdlr-core-skin-divider" /></h3><a href="https://demo.goodlayers.com/traveltour/blog-full-right-sidebar-with-frame/" target="_self" className="gdlr-core-title-item-link"><span className="gdlr-core-separator">/</span>Read All Articles</a>
+                    <h3 className="gdlr-core-title-item-title gdlr-core-skin-title" style={{fontSize: 24, fontWeight: 400, letterSpacing: 0, textTransform: 'none'}}><span className="gdlr-core-title-item-left-icon" style={{fontSize: 22}}><i class="fa-regular fa-lightbulb"></i></span>Travel Articles<span className="gdlr-core-title-item-title-divider gdlr-core-skin-divider" /></h3><a href="https://demo.goodlayers.com/traveltour/blog-full-right-sidebar-with-frame/" target="_self" className="gdlr-core-title-item-link"><span className="gdlr-core-separator">/</span>Read All Articles</a>
                 </div>
             </div>
         </div>

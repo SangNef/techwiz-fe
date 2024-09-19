@@ -152,10 +152,7 @@ function Home2() {
                                 </li>
                             </ul>
                         </div>
-                        <ul className="flex-direction-nav">
-                            <li className="flex-nav-prev"><a className="flex-prev" href="#" style={{ marginTop: '-287.438px' }}><i className="arrow_carrot-left" /></a></li>
-                            <li className="flex-nav-next"><a className="flex-next" href="#" style={{ marginTop: '-287.438px' }}><i className="arrow_carrot-right" /></a></li>
-                        </ul>
+                        
                     </div>
                 </div>
             </div>

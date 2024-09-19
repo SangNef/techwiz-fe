@@ -5,6 +5,8 @@ import '../src/layout/css/all.css'
 import '../src/layout/css/css.css'
 import '../src/layout/css/elegant-font.css'
 import '../src/layout/css/font-awesome.css'
+import '../src/layout/css/note/web.assets_web.min.css'
+import '../src/layout/css/note/web.assets_web_print.min.css'
 import '../src/layout/css/page-builder.css'
 import '../src/layout/css/rs6.css'
 import '../src/layout/css/style-core.css'
@@ -22,9 +24,11 @@ import '../src/layout/css/wc-blocks.css'
 import '../src/layout/css/woocommerce-layout.css'
 import '../src/layout/css/woocommerce-smallscreen.css'
 import '../src/layout/css/woocommerce.css'
+
 import App from './App.jsx'
 import './index.css'
 import store from './store'
+
 
 createRoot(document.getElementById('root')).render(
 
