@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 //style={{}}
 function Home1() {
@@ -54,7 +55,12 @@ function Home1() {
         {/* END REVOLUTION SLIDER */}
       </div></div></div></div></div>
 
-      
+      <Helmet>
+        <script src="../javascript/core.min.js"></script>
+        <script src="../javascript/effect.min.js"></script>
+        <script src="../javascript/script.min.js"></script>
+        <script src="../javascript/tourmaster.min.js"></script>
+      </Helmet>
 
       <div className="gdlr-core-pbf-wrapper " style={{ padding: '60px 0px 15px 0px' }} data-skin="Blue Column Service">
         <div className="gdlr-core-pbf-background-wrap">

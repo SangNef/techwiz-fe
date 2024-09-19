@@ -1,26 +1,33 @@
 import React from 'react';
-import Footer from './layout/html/footer';
-import Header from './layout/html/header';
-import Home1 from './layout/pages/Home1';
-import Home2 from './layout/pages/Home2';
-import Home3 from './layout/pages/Home3';
-import Home3_5 from './layout/pages/Home3_5';
-import Home4 from './layout/pages/Home4';
+import Home from '../src/layout/pages/Home';
+import Layout from './components/layout';
+// import Login from './pages/login';
+// import Register from './pages/register';
 
-function App() {
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Details from './layout/pages/Details/Index';
+
+
+
+const App = () => {
   return (
-    <>
-      <Header />
-      <Home1/>
-      <Home2/>
-      <Home3/>
-      <Home3_5/>
-      <Home4/>
-      <Footer />
+    <Router>
 
-      
-    </>
+      <Routes>
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} /> */}
+
+        {/* Routes with header */}
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+        </Route>
+        <Route path="/details" element={<Layout />}>
+          <Route index element={<Details />} />
+        </Route>
+
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

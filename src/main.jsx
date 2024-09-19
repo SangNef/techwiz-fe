@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Provider } from 'react-redux'
 import '../src/layout/css/all.css'
 import '../src/layout/css/css.css'
 import '../src/layout/css/elegant-font.css'
@@ -23,9 +24,15 @@ import '../src/layout/css/woocommerce-smallscreen.css'
 import '../src/layout/css/woocommerce.css'
 import App from './App.jsx'
 import './index.css'
+import store from './store'
 
 createRoot(document.getElementById('root')).render(
+
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </StrictMode>,
+
+
 )

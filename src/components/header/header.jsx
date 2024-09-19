@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 
 function Header() {
+    const navigate = useNavigate();
+    const handleNavigation = () => {
+        navigate('/details');
+      };
     return (
         <>
             <div className="traveltour-header-background-transparent"><div className="traveltour-top-bar "><div className="traveltour-top-bar-background" /><div className="traveltour-top-bar-container clearfix traveltour-container "><div className="traveltour-top-bar-left traveltour-item-pdlr traveltour-right-with-border"><div className="traveltour-top-bar-left-text"><i className="fa fa-phone" style={{ fontSize: 16, color: '#ffffff', marginRight: 10 }} /> 1.820.3345.33
@@ -216,7 +221,8 @@ function Header() {
                                             </li>
                                         </ul>
                                     </li>
-                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4864 traveltour-normal-menu"><a href="https://demo.goodlayers.com/traveltour/destinations/">Destinations</a></li>
+                                    <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4864 traveltour-normal-menu">  <a href="#" onClick={handleNavigation}>Destinations</a>
+                                    </li>
                                     <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4867 traveltour-normal-menu"><a href="#" className="sf-with-ul-pre sf-with-ul">Date &amp; Pricing</a>
                                         <ul className="sub-menu" style={{ display: 'none' }}>
                                             <li className="menu-item menu-item-type-custom menu-item-object-custom menu-item-5294" data-size={60}><a href="https://demo.goodlayers.com/traveltour/tour/finland-helsinki-santa-claus-town-8-days/">Multiple Packages</a></li>
