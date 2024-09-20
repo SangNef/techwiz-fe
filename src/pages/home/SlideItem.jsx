@@ -1,13 +1,12 @@
-// SlideItem.js
 import React from "react";
 import { Paper, Button } from "@mui/material";
 
-const SlideItem = ({ item }) => {
+const SlideItem = ({ bannerUrl, title }) => {
   return (
     <Paper className="relative">
       <img
-        src={item.image}
-        alt={item.description}
+        src={bannerUrl}
+        alt={title}
         className="w-full h-[700px] object-cover"
       />
       <div
@@ -25,10 +24,7 @@ const SlideItem = ({ item }) => {
           px-4
         "
       >
-        <h2 className="text-2xl mb-4">{item.description}</h2>
-        <Button variant="contained" className="bg-blue-500 hover:bg-blue-700">
-          Check it out!
-        </Button>
+        <h2 className="text-2xl mb-4">{title}</h2>
       </div>
     </Paper>
   );

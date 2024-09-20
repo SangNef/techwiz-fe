@@ -12,3 +12,9 @@ export const register = async (name, email, password) => {
   // console.log(data)
   return post(url, data);
 }
+
+export const forgotPassword = async (email) => {
+  const url = "/forgot-password";
+  const data = { email };
+  return post(url, data);
+}

@@ -19,7 +19,7 @@ const Register = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Đăng ký";
+    document.title = "Register";
   }, []);
 
   const navigate = useNavigate();
