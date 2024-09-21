@@ -21,14 +21,15 @@ const SlideItem = ({ item }) => {
           absolute top-1/2 left-32 transform -translate-y-1/2
           text-white
           z-20
-          opacity-0 animate-fadeIn
-          px-4
         "
       >
-        <h2 className="text-2xl mb-4">Xin chao</h2>
-        <Button variant="contained" className="bg-blue-500 hover:bg-blue-700">
+        <h2 style={{ marginLeft: '40%', fontSize: '40px', marginBottom: '16px' }}>
+          {item.description}
+        </h2>
+        <Button variant="contained" style={{ marginLeft: '40%',backgroundColor: '#3b82f6', width: '200px', height: '50px', ':hover': { backgroundColor: '#1d4ed8' } }}>
           Check it out!
         </Button>
+
       </div>
     </Paper>
   );
