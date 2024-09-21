@@ -304,7 +304,7 @@ function Header() {
                                             </li>
                                         </ul>
                                     </li>
-                                </ul><div className="traveltour-navigation-slide-bar  traveltour-navigation-slide-bar-style-1" id="traveltour-navigation-slide-bar" style={{ width: '50.0063px', left: '352.069px', display: 'block', overflow: 'hidden' }} /></div><div className="traveltour-main-menu-right-wrap clearfix "><div className="traveltour-main-menu-search" id="traveltour-top-search"><i className="fa fa-search" /></div>
+                                </ul></div><div className="traveltour-main-menu-right-wrap clearfix "><div className="traveltour-main-menu-search" id="traveltour-top-search"><i className="fa fa-search" /></div>
                                 </div>			</div>{/* traveltour-navigation */}
                         </div>{/* traveltour-header-inner */}
                     </div>{/* traveltour-header-container */}
