@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { login } from "../../api/auth";
+import { login, activateAccount } from "../../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../store/authSlice";
-import Snackbar from "@mui/material/Snackbar";
-import MuiAlert from "@mui/material/Alert";
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Modal from "../../components/modal";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
     document.title = "Login";
@@ -32,47 +28,55 @@ const Login = () => {
       const response = await login(email, password);
       const token = response.token;
 
-      dispatch(
-        loginSuccess({
-          token: token,
-        })
-      );
-
+      dispatch(loginSuccess({ token }));
       navigate("/");
     } catch (error) {
-      if (error.response && error.response.data.errors) {
-        const validationErrors = Object.values(
-          error.response.data.errors
-        ).flat();
-        setError(validationErrors);
+      if (error.response) {
+        // console.log(error.response.data.error);
+        if (error.response.data.error == "Account not activated") {
+          setModalMessage(
+            "Your account is not activated. Do you want to activate it now?"
+          );
+          setModalOpen(true);
+          console.log(modalOpen);
+        } else {
+          setError(error.response.data.error);
+        }
       } else {
-        setError(
-          error.response?.data?.error || "Login failed. Please try again."
-        );
+        setError("Network error. Please try again.");
       }
-      setOpen(true);
     } finally {
       setLoading(false);
     }
   };
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
+  const handleActivateAccount = async () => {
+    try {
+      await activateAccount(email);
+      setModalOpen(false);
+      navigate("/login");
+    } catch (error) {
+      setError("Activation failed. Please try again.");
     }
-    setOpen(false);
   };
 
   return (
     <div>
+      {modalOpen && (
+        <Modal
+          message={modalMessage}
+          onConfirm={handleActivateAccount}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
       <div
         className="bg-no-repeat bg-cover bg-center relative"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1951&q=80)",
+            "url(https://img.freepik.com/free-vector/hand-drawn-travel-background_52683-85109.jpg?t=st=1726940847~exp=1726944447~hmac=c6a57afd0c3b5b4eebd86378a7be05494648e3d46e736c306706776d6ed8060f&w=1060)",
         }}
       >
-        <div className="absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0" />
+        <div className="absolute bg-black opacity-30 inset-0 z-0" />
         <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
           <div className="flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl z-10">
             <div className="self-start hidden lg:flex flex-col text-white">
@@ -80,7 +84,7 @@ const Login = () => {
             </div>
           </div>
           <div className="flex justify-center self-center z-10">
-            <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
+            <div className="p-12 bg-white mx-auto rounded-2xl w-100">
               <div className="mb-4">
                 <h3 className="font-semibold text-2xl text-gray-800">
                   Sign In
@@ -113,7 +117,6 @@ const Login = () => {
                   />
                 </div>
 
-                {/* Forgot Password Link */}
                 <div className="flex items-center gap-1">
                   <Link
                     to="/forgot-password"
@@ -144,15 +147,11 @@ const Login = () => {
                   </button>
                 </div>
               </form>
+              {error && <p className="text-red-500 mt-2">{error}</p>}
             </div>
           </div>
         </div>
       </div>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="error">
-          {error}
-        </Alert>
-      </Snackbar>
     </div>
   );
 };

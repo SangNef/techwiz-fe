@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { register } from "../../api/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../store/authSlice";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
@@ -22,22 +21,13 @@ const Register = () => {
     document.title = "Register";
   }, []);
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
       const response = await register(name, email, password);
-      const token = response.token;
-      dispatch(loginSuccess({
-        token: token,
-      }));
-  
-  
-      navigate("/");
+      redirect('/login');
     } catch (error) {
       if (error.response && error.response.data.errors) {
         const validationErrors = Object.values(error.response.data.errors).flat();
@@ -48,6 +38,7 @@ const Register = () => {
       setOpen(true);
     } finally {
       setLoading(false);
+      
     }
   };
 

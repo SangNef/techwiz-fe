@@ -10,15 +10,36 @@ const authSlice = createSlice({
   },
   reducers: {
     loginSuccess(state, action) {
-      state.token = action.payload.token;
+      const token = action.payload.token;
+
+      if (!token || token.split('.').length !== 3) {
+        console.error("Invalid token format");
+        state.token = null;
+        state.isAuthenticated = false;
+        localStorage.removeItem("token");
+        return;
+      }
+
+      state.token = token;
       state.isAuthenticated = true;
-      localStorage.setItem("token", action.payload.token);
-      const decodedToken = jwtDecode(action.payload.token);
-      state.user = {
-        id: decodedToken.sub,
-        name: decodedToken.name || "Unknown",
-        email: decodedToken.email || "Unknown",
-      };
+      localStorage.setItem("token", token);
+
+      try {
+        const decodedToken = jwtDecode(token);
+        state.user = {
+          id: decodedToken.sub,
+          name: decodedToken.name || "Unknown",
+          email: decodedToken.email || "Unknown",
+          avatar: decodedToken.avatar || null,
+          currency_id: decodedToken.currency_id || null,
+          currency_code: decodedToken.currency_code || null,
+        };
+      } catch (error) {
+        console.error("Failed to decode token:", error);
+        state.token = null;
+        state.isAuthenticated = false;
+        localStorage.removeItem("token");
+      }
     },
     logout(state) {
       state.user = null;

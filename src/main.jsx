@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 import { loginSuccess } from './store/authSlice.jsx'
 
 const token = localStorage.getItem('token');
-if (token) {
+if (token || token !== 'undefined') {
   store.dispatch(loginSuccess({ token: token }));
 }
 createRoot(document.getElementById('root')).render(

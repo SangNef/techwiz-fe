@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../store/authSlice";
-import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -36,7 +35,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-gray-900 text-white p-1">
+      <header className="bg-gray-900 text-white p-1 z-50">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex gap-6 items-center">
             <p className="flex items-center gap-1">
@@ -54,8 +53,13 @@ const Header = () => {
                 <AccountCircleIcon />
               </IconButton>
               <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+                <MenuItem component={Link} to="/user" onClick={handleClose}>
+                  Profile
+                </MenuItem>
+                <MenuItem component={Link} to="/user/trips" onClick={handleClose}>
+                  My Trips
+                </MenuItem>
                 <MenuItem onClick={handleLogout}>
-                  <LogoutIcon fontSize="small" />
                   Logout
                 </MenuItem>
               </Menu>
@@ -82,7 +86,7 @@ const Header = () => {
           <ul className="flex gap-8">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/destinations">Destinations</Link></li>
-            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/about-us">About Us</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>

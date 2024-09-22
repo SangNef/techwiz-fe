@@ -9,9 +9,12 @@ const api = axios.create({
   },
 });
 
-export const get = async (url, config = {}) => {
+export const get = async (url, params = {}, config = {}) => {
   try {
-    const response = await api.get(url, config);
+    const response = await api.get(url, {
+      ...config,
+      params,
+    });
     return response.data;
   } catch (error) {
     // console.error("GET request failed:", error);
